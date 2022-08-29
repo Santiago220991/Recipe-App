@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_192524) do
     t.float "preparation_time"
     t.float "cooking_time"
     t.string "description"
-    t.boolean "public"
+    t.boolean "public", default: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
