@@ -7,5 +7,6 @@
           <%= f.text_field :cooking_time, placeholder: "Cooking Time" %>
           <%= f.text_field :description, placeholder: "Description" %>
           <%= f.check_box :public, {}, "true", "false" %>
+          <%= f.label :public, "Select If you want your recipe to be public" %>
           <%= f.submit "Submit" %>
         <% end %> 
