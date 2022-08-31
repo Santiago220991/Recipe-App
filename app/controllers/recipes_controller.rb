@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
       flash[:success] = 'Your recipe has been created!'
       redirect_to recipes_path
     else
-      flash[:error] = "Recipe not created!"
+      flash[:error] = 'Recipe not created!'
       redirect_to new_recipe_path
     end
   end
@@ -17,7 +17,6 @@ class RecipesController < ApplicationController
   def show
     @recipe = current_user.recipes.find(params[:id])
   end
-
 
   def destroy
     @recipe = current_user.recipes.find(params[:id])
@@ -28,9 +27,9 @@ class RecipesController < ApplicationController
   def toggle_public
     @recipe = Recipe.find_by_id(params[:recipe_id])
     @recipe.public = !@recipe.public
-    redirect_to recipe_path(@recipe.id), notice: "Recipe updated" if @recipe.save
+    redirect_to recipe_path(@recipe.id), notice: 'Recipe updated' if @recipe.save
   end
-  
+
   private
 
   def recipe_params

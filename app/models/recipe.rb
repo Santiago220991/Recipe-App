@@ -8,6 +8,6 @@ class Recipe < ApplicationRecord
   validates :cooking_time, numericality: { greater_than: 0 }
   validates :description, presence: true
   def food_ids
-  recipe_foods.map(&:food_id)
+    recipe_foods.map(&:food_id)
   end
 end
