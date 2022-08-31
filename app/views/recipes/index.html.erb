@@ -9,9 +9,7 @@
         <%= content_tag :div, msg, class: "#{type} alert" %>
         <% end %>
         <% @recipes.each do |recipe| %>
-          <div>
-            <%= render partial: "recipes/recipe", collection: @recipes %> 
-            
-          </div>
+          
      <% end %>
+            <%= render partial: "recipes/recipe", collection: @recipes %> 
      </section>
