@@ -16,9 +16,7 @@
         <th >Food</th>
         <th>Quantity</th>
         <th>Value</th>
-        <% if can? :manage, @recipe %>
         <th>Actions</th>
-        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -28,12 +26,12 @@
         <td><%= food.food.name %></td>
         <td><%= "#{food.quantity}" %></td>
         <td><%= "#{food.food.price}" %></td>
-        <% if can? :manage, @recipe %>
+        
         <td>
           <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food) %>
           <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>
         </td>
-        <% end %>
+        
       </tr>
       <% end %>
 

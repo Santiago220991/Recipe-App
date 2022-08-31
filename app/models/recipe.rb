@@ -7,4 +7,7 @@ class Recipe < ApplicationRecord
   validates :preparation_time, numericality: { greater_than: 0 }
   validates :cooking_time, numericality: { greater_than: 0 }
   validates :description, presence: true
+  def food_ids
+  recipe_foods.map(&:food_id)
+  end
 end
