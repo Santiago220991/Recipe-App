@@ -10,10 +10,7 @@
         <% end %>
         <% @recipes.each do |recipe| %>
           <div>
-            <%= link_to recipe.name, recipe %> <br><br>
-            <%= recipe.description %> <br><br>
-            
-            <%= button_to "Remove", recipe_path(recipe), method: :delete %> <br><br>
+            <%= render partial: "recipes/recipe", collection: @recipes %> 
             
           </div>
      <% end %>
