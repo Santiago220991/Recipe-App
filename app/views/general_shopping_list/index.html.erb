@@ -13,7 +13,7 @@
     <div>
         <p>Quantity</p>
         <%@recipe_foods.each do |food|%>
-            <div><%=food.quantity%></div>
+            <div><%=food.quantity%> <%=Food.find(food.food_id).measurement_unit%></div>
         <%end%>
     </div>
      <div>
