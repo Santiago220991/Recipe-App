@@ -78,4 +78,4 @@ gem 'devise'
 
 gem 'cancancan'
 
-gem "bullet"
+gem 'bullet'
