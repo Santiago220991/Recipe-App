@@ -32,8 +32,10 @@
         <td><%= "#{food.food.price}" %></td>
         
         <td>
+        <% if can? :manage, @recipe%>
           <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food) %>
           <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>
+        <%end%>
         </td>
         
       </tr>
