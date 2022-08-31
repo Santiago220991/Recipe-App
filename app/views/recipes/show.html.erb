@@ -2,14 +2,17 @@
 <p>Preparation Time: <%= @recipe.preparation_time %></p>
 <p>Cooking Time: <%= @recipe.cooking_time %></p>
 <p><%= @recipe.description %></p>
+<%if can? :manage, @recipe%>
 <%= link_to "Add Food", new_recipe_recipe_food_path(@recipe) %>
+<%end%>
 <%= link_to "Generate shopping list", general_shopping_list_index_path(recipe_id: params[:id]), method: :get %>
+<%if can? :manage, @recipe%>
 <% if @recipe.public %>
   <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch %>
 <% else %>
   <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch %>
 <% end %>
-
+<%end%>
 <div>
   <table>
     <thead>

@@ -9,9 +9,9 @@ class Ability
     return unless user
 
     can :read, :all
-    can :manage, Foods, author_id: user.id
-    can :manage, Recipes, author_id: user.id
-
+    can :manage, Food, user_id: user.id
+    can :manage, Recipe, user_id: user.id
+    can :manage, RecipeFood
     return unless user.admin?
 
     can :manage, :all

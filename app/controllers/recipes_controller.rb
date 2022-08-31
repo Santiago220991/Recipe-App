@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
   def index
     @recipes = current_user.recipes.all
   end
@@ -15,7 +16,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = current_user.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def destroy
