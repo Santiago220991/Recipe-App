@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
 
   validates :name, presence: true
+
+  def admin?
+    role == 'admin'
+  end
 end
