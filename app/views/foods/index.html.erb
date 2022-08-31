@@ -1,9 +1,5 @@
 <div><%= "List of Food" %></div>
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
+<%= button_to 'Log out' , destroy_user_session_path, method: :delete, data:{turbo: false}%>
 <%= link_to "Add Food", new_food_path%>
 <div class="foods">
     <div class="food_name">
