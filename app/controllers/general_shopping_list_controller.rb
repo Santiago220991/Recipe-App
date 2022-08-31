@@ -2,7 +2,8 @@ class GeneralShoppingListController < ApplicationController
   def index
     @recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id])
     @recipe_foods.each do |food|
-      if (Food.find(food.food_id).quantity-food.quantity < 1)
+      if(Food.find(food.food_id).user_id != current_user.id)
+      elsif (Food.find(food.food_id).quantity-food.quantity < 1)
         food.quantity=(Food.find(food.food_id).quantity-food.quantity)*(-1)
       else
         food.quantity=0
