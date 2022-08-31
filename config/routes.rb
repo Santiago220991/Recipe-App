@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :general_shopping_list, only:[:index]
   resources :recipes, only: [:index, :new, :create, :destroy, :show]
+  resources :recipe_foods , only: [:edit]
   # Defines the root path route ("/")
   # root "articles#index"
   end
