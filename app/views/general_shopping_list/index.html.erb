@@ -18,7 +18,7 @@
           <%@recipe_foods.each do |food| %>
             <tr>
               <td><%=Food.find(food.food_id).name%></td>
-              <td><%=food.quantity%></td>
+              <td><%=food.quantity%><%=Food.find(food.food_id).measurement_unit%></td>
               <td><%=food.quantity*Food.find(food.food_id).price%></td>
             <%end%>
             </tr>      
