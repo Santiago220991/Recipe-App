@@ -7,16 +7,16 @@ RSpec.describe 'General Shopping List', type: :feature do
       Food.destroy_all
       Recipe.destroy_all
       RecipeFood.destroy_all
-      user = User.create(name: 'user', email: 'user@gmail.com', password: 123_456)
-      food = Food.create(name: 'meat', measurement_unit: 'lib', price: 1, quantity: 3, user:)
-      recipe = Recipe.create(name: 'bulgogi', preparation_time: 2, cooking_time: 1, description: 'good', public: true,
-                             user:)
-      RecipeFood.create(quantity: 5, recipe:, food:)
+      @user = User.create(name: 'user', email: 'user@gmail.com', password: 123_456)
+      @food = Food.create(name: 'meat', measurement_unit: 'lib', price: 1, quantity: 3, user: @user)
+      @recipe = Recipe.create(name: 'bulgogi', preparation_time: 2, cooking_time: 1, description: 'good', public: true,
+                             user: @user)
+      RecipeFood.create(quantity: 5, recipe: @recipe, food: @food)
       visit root_url
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
+      fill_in 'user_email', with: @user.email
+      fill_in 'user_password', with: @user.password
       click_button 'Log in'
-      visit general_shopping_list_index_path(recipe_id: recipe.id)
+      visit general_shopping_list_index_path(recipe_id: @recipe.id)
     end
     it 'should render Shopping List title' do
       expect(page).to have_content('Shopping List')
