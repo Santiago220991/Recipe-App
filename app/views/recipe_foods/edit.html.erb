@@ -2,10 +2,14 @@
     <%= content_tag :div, msg, class: "#{type} alert" %>
     <% end %>
 
-    <p>Edit the <%= @recipe_food.food.name %> quantity:</p>
-    <%= form_with url: "/recipes/#{@recipe_food.recipe_id}/recipe_foods/#{@recipe_food.id}", scope: :recipe_food, method: :patch do |f| %>
-          <%= f.hidden_field :food_id, value: @recipe_food.food_id %>
-          <%= f.number_field :quantity, placeholder: "Quantity" %>
-          <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
-          <%= f.submit "Change" %>
-        <% end %> 
+    <div class="container bg-light d-flex flex-column text-center p-5 rounded">
+      <h1 class="h1">Edit the <%= @recipe_food.food.name %> quantity:</h1>
+      <%= form_with url: "/recipes/#{@recipe_food.recipe_id}/recipe_foods/#{@recipe_food.id}", scope: :recipe_food, method: :patch do |f| %>
+          <div class="field form-outline my-4 w-25 mx-auto">
+            <%= f.hidden_field :food_id, value: @recipe_food.food_id %>
+            <%= f.number_field :quantity, placeholder: "Quantity", class:"form-control" %>
+            <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
+          </div>
+            <%= f.submit "Change", class:"btn btn-outline-info mx-2 btn-lg" %>
+          <% end %> 
+    </div>
