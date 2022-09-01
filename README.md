@@ -8,7 +8,7 @@
 
 ## Built With
 
-- Rails, Ruby, Gems, rspec, SQL.
+- Rails, Ruby, Devise, Cancancan, Rspec, SQL, Capybara, Boostrap.
 
 ## Setup Project
 - Clone repo by using (https://github.com/Santiago220991/Recipe-App.git)
