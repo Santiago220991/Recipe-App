@@ -30,23 +30,3 @@
 
 
 
-<div class="foods">
-   <div>
-       <p>Food</p>
-       <%@recipe_foods.each do |food|%>
-           <div><%=Food.find(food.food_id).name%></div>
-       <%end%>
-   </div>
-   <div>
-       <p>Quantity</p>
-       <%@recipe_foods.each do |food|%>
-           <div><%=food.quantity%></div>
-       <%end%>
-   </div>
-    <div>
-       <p>Price</p>
-       <%@recipe_foods.each do |food|%>
-           <div><%=food.quantity*Food.find(food.food_id).price%></div>
-       <%end%>
-   </div>
-</div>
