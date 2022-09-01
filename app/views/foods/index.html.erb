@@ -1,47 +1,33 @@
 <div class="container p-5 rounded">
-<div><%= "List of Food" %></div>
 
-<%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-<%= link_to "Add Food", new_food_path %>
+<h1 class="h1 text-center"><%= "List of Food" %></h1>
+<div class="d-flex justify-content-center bg-light p-4 rounded gap-2">
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false },class:"btn btn-outline-danger" %>
+    <%= link_to "Add Food", new_food_path, class:"btn btn-outline-primary" %>
+</div>
+
 
 <table class="table table-striped text-center mt-3">
     <thead>
      <tr>
-        <th scope="col">
-            <p>Food</p>
-            <% @foods.each do |food| %>
-             <div><%= food.name %></div>
-            <% end %>
-        </th>
-
-        <th scope="col">
-            <p>Measurement unit</p>
-            <% @foods.each do |food| %>
-                <div><%= food.measurement_unit %></div>
-            <% end %>
-        </th>
-
-        <th scope="col">
-            <p>Unit price</p>
-            <% @foods.each do |food| %>
-                <div><%= food.price %></div>
-            <% end %>
-        </th>
-
-        <th scope="col">
-            <p>Quantity</p>
-            <% @foods.each do |food| %>
-                <div><%= food.quantity %></div>
-            <% end %>
-        </th>
-
-         <th scope="col">
-            <p>Actions</p>
-            <% @foods.each do |food| %>
-                <div><%= button_to "Delete", food_path(id: food.id), method: :delete %></div>
-            <% end %>
-        </th>
-
+        <th class="col">Food</th>
+        <th class="col">Measurement unit</th>
+        <th class="col">Unit price</th>
+        <th class="col">Quantity</th>
+        <th class="col">Actions</th>
      </tr>
     </thead>
+    <tbody>
+        <%@foods.each do |food|%>
+        <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td><%= food.quantity %></td>
+            <td><%= button_to "Delete", food_path(id: food.id), method: :delete, class:"btn btn-outline-danger" %></td>
+        <% end %>
+        </tr>
+    </tbody>
 </table>
+
+       
