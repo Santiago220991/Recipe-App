@@ -9,7 +9,6 @@ RSpec.describe 'Describe Recipe', type: :feature do
       fill_in 'user_password', with: @user.password
       click_button 'Log in'
       visit recipes_path
-      
     end
 
     it 'render List of Recipes title' do
@@ -28,6 +27,5 @@ RSpec.describe 'Describe Recipe', type: :feature do
       click_link 'Create a Recipe'
       expect(page).to have_current_path(new_recipe_path)
     end
-    
   end
 end
