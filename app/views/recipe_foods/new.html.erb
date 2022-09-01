@@ -2,9 +2,22 @@
             <%= content_tag :div, msg, class: "#{type} alert" %>
             <% end %>
             
+            <div class="container d-flex justify-content-center bg-light rounded p-5">
             <%= form_with url: "/recipes/#{@recipe.id}/recipe_foods", scope: :recipe_food do |f| %>
-                 <%= f.collection_select(:food_id, Food.where.not(id: @recipe.food_ids), :id, :name) %>
-                  <%= f.number_field :quantity, placeholder: "Quantity" %>
+                <div class="d-flex flex-column">
+                <h2 class="h1 text-center">Add Food</h2>
+                <div class="field form-outline mb-4 text-center">
+                  <%= f.collection_select(:food_id, Food.where.not(id: @recipe.food_ids), :id, :name) %>
+                </div>
+
+                <div class="field form-outline mb-4">
+                  <%= f.number_field :quantity, placeholder: "Quantity", class:"form-control" %>
+                </div>
                   <%= f.hidden_field :recipe_id, value: @recipe.id %>
-                  <%= f.submit "Add" %>
+                 <div class="actions text-center">
+                  <%= f.submit "Add", class:"btn btn-outline-success btn-lg" %>
+                 </div> 
                 <% end %> 
+                </div>
+
+            </div>
