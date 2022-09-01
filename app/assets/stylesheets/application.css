@@ -13,8 +13,13 @@
  *= require_tree .
  *= require_self
  */
-
- .food-item{
-  border: 1px solid black;
-  padding: 5px;
+.element{
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;; 
+  border: 1px solid #333;
+  margin-top:1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  
 }
