@@ -1,3 +1,14 @@
-<h1>Public recipes: </h1>
+<h2>Public recipes</h2>
 
-<%= render partial: "recipes/recipe", collection: @pub_recipes %>
+<% @pub_recipes.each do |recipe| %>
+<div class='element'>
+  <div class='element_left_recipes'>
+    <h3><%= link_to recipe.name.capitalize, recipe %></h3> 
+    <p><%= "By: #{recipe.user.name}" %></p>
+  </div>
+  <div class='element_right'>
+<p><%= "Total food items: #{recipe.foods.length}" %></p>
+    <p><%= "Total price: #{recipe.foods.map(&:price).sum}" %></p>
+  </div>
+</div>
+<% end %>
