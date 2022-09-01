@@ -1,35 +1,41 @@
+<div class="container p-5 bg-light rounded">
 <div><%= "List of Food" %></div>
-<%= button_to 'Log out' , destroy_user_session_path, method: :delete, data:{turbo: false}%>
-<%= link_to "Add Food", new_food_path%>
-<div class="foods">
-    <div class="food_name">
+
+<%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+<%= link_to "Add Food", new_food_path %>
+
+<table class="table">
+    <div>
         <p>Food</p>
-        <%@foods.each do |food|%>
-            <div><%=food.name%></div>
-        <%end%>
+        <% @foods.each do |food| %>
+            <div><%= food.name %></div>
+        <% end %>
     </div>
-    <div class="m_unit">
+    <div>
         <p>Measurement unit</p>
-        <%@foods.each do |food|%>
-            <div><%=food.measurement_unit%></div>
-        <%end%>
+        <% @foods.each do |food| %>
+            <div><%= food.measurement_unit %></div>
+        <% end %>
     </div>
-    <div class="unit_price">
+    <div >
         <p>Unit price</p>
-        <%@foods.each do |food|%>
-            <div><%=food.price%></div>
-        <%end%>
+        <% @foods.each do |food| %>
+            <div><%= food.price %></div>
+        <% end %>
     </div>
-     <div class="quantity">
+     <div >
         <p>Quantity</p>
-        <%@foods.each do |food|%>
-            <div><%=food.quantity%></div>
-        <%end%>
+        <% @foods.each do |food| %>
+            <div><%= food.quantity %></div>
+        <% end %>
     </div>
-    <div class="actions">
+    <div >
         <p>Actions</p>
-        <%@foods.each do |food|%>
-            <div><%=button_to "Delete", food_path(id: food.id), method: :delete%></div>
-        <%end%>
+        <% @foods.each do |food| %>
+            <div><%= button_to "Delete", food_path(id: food.id), method: :delete %></div>
+        <% end %>
     </div>
+</table>
+
+
 </div>

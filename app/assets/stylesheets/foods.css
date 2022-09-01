@@ -1,8 +1,0 @@
-.foods {
-  display: flex;
-}
-
-.foods > * {
-  border: solid black 1px;
-  flex-basis: 20%;
-}
