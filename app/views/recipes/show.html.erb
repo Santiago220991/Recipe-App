@@ -1,44 +1,55 @@
-<h2><%= @recipe.name %></h2>
-<p>Preparation Time: <%= @recipe.preparation_time %></p>
-<p>Cooking Time: <%= @recipe.cooking_time %></p>
-<p><%= @recipe.description %></p>
-<%if can? :manage, @recipe%>
-<%= link_to "Add Food", new_recipe_recipe_food_path(@recipe) %>
-<%end%>
-<%= link_to "Generate shopping list", general_shopping_list_index_path(recipe_id: params[:id]), method: :get %>
-<%if can? :manage, @recipe%>
-<% if @recipe.public %>
-  <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch %>
-<% else %>
-  <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch %>
-<% end %>
-<%end%>
-<div>
-  <table>
+<div class="container d-flex align-items-center bg-light rounded p-4">
+  <div>
+    <h1 class="h1 text-center"><%= @recipe.name %></h1>
+    <p>Preparation Time: <%= @recipe.preparation_time %></p>
+    <p>Cooking Time: <%= @recipe.cooking_time %></p>
+    <p><%= @recipe.description %></p>
+  </div>
+
+  <div>
+    <%if can? :manage, @recipe%>
+    <% if @recipe.public %>
+      <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch%>
+    <% else %>
+      <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch %>
+    <% end %>
+    <%end%>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-around my-5">
+  <%if can? :manage, @recipe%>
+  <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"btn btn-outline-info" %>
+  <%end%>
+  <%= link_to "Generate shopping list", general_shopping_list_index_path(recipe_id: params[:id]), method: :get, class:"btn btn-outline-primary" %>
+</div>
+ 
+
+<div class="container">
+  <table class="table table-striped">
     <thead>
-      <tr>
-        <th >Food</th>
-        <th>Quantity</th>
-        <th>Value</th>
-        <th>Actions</th>
+      <tr >
+        <th class="col">Food</th>
+        <th class="col">Quantity</th>
+        <th class="col">Value</th>
+        <th class="col">Actions</th>
       </tr>
     </thead>
     <tbody>
 
     <% @recipe.recipe_foods.includes([:food]).each do |food| %>
-      <tr>
+      <tr >
         <td><%= food.food.name %></td>
         <td><%= "#{food.quantity}" %></td>
         <td><%= "#{food.food.price}" %></td>
         
-        <td>
-          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food) %>
-          <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>
+        <td class="d-flex gap-3">
+          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food), class:"btn btn-outline-info btn-sm"  %>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete , class:"btn btn-outline-danger btn-sm" %>
         </td>
         
       </tr>
       <% end %>
-
     </tbody>
   </table>
 </div>
