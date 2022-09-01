@@ -10,7 +10,7 @@ RSpec.describe 'General Shopping List', type: :feature do
       @user = User.create(name: 'user', email: 'user@gmail.com', password: 123_456)
       @food = Food.create(name: 'meat', measurement_unit: 'lib', price: 1, quantity: 3, user: @user)
       @recipe = Recipe.create(name: 'bulgogi', preparation_time: 2, cooking_time: 1, description: 'good', public: true,
-                             user: @user)
+                              user: @user)
       RecipeFood.create(quantity: 5, recipe: @recipe, food: @food)
       visit root_url
       fill_in 'user_email', with: @user.email
