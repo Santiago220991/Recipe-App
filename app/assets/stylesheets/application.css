@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
-.element{
+.element {
   display: flex;
   width: 50%;
-  justify-content: space-evenly;; 
+  justify-content: space-evenly;
   border: 1px solid #333;
-  margin-top:1rem;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 5px;
- }
+}
