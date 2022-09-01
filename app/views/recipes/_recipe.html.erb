@@ -1,5 +1,10 @@
-<p><%= link_to recipe.name, recipe_path(id: recipe.id) %></p>
-<p><%= recipe.description %></p>
-  <% if can? :manage, recipe %>
-<%= button_to 'Remove', recipe_path(recipe), method: :delete %>
-<% end %>
+<div class="d-flex border align-items-center text-center mx-auto  border-dark rounded p-3 w-50 m-3">
+  <div class="d-flex flex-column p-2 w-50">
+    <p><%= link_to recipe.name, recipe_path(id: recipe.id),class:"link-secondary" %></p>
+    <% if can? :manage, recipe %>
+    <%= button_to 'Remove', recipe_path(recipe), method: :delete,class:"btn btn-outline-danger" %>
+    <% end %>
+  </div>
+
+  <p class="h6 w-50"><%= recipe.description %></p>
+</div>

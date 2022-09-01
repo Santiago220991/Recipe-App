@@ -1,9 +1,10 @@
-    <section class="users_list">
-    <h1>Recipes List</h1>
-<%= button_to 'Log out' , destroy_user_session_path, method: :delete, data:{turbo: false}%>
-    <div>
-    <%= link_to "Create a Recipe", new_recipe_path %> 
-    </div
+    <section class="container bg-light p-5">
+    <h1 class="text-center h1">Recipes List</h1>
+    <div class="d-flex justify-content-around mb-3">
+        <%= button_to 'Log out' , destroy_user_session_path, method: :delete, data:{turbo: false}, class:"btn btn-outline-danger"%>
+        <%= link_to "Create a Recipe", new_recipe_path,class:"btn btn-outline-success" %> 
+    </div>
+    
 
     <% flash.each do |type, msg| %>
         <%= content_tag :div, msg, class: "#{type} alert" %>
