@@ -7,6 +7,9 @@
 <img src="./recipe_erd_2_members.png" alt="ERD Recipe Catalog" />
 </p>
 
+## Live Demo
+[Live Demo Link](https://recipes-app-01.herokuapp.com/foods)
+
 ## Built With
 
 - Rails, Ruby, Devise, Cancancan, Rspec, SQL, Capybara, Bootstrap.
