@@ -22,3 +22,11 @@
   padding: 1rem;
   border-radius: 5px;
 }
+
+.alert {
+  text-align: center;
+}
+
+.notice {
+  text-align: center;
+}
