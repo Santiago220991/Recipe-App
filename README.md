@@ -3,12 +3,16 @@
 # Item catalog
 
 > The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+<p  align="center">
+<img src="./recipe_erd_2_members.png" alt="ERD Recipe Catalog" />
+</p>
 
-<img src="./recipe_erd_2_members.png" alt="UML Recipe Catalog" />
+## Live Demo
+[Live Demo Link](https://recipes-app-01.herokuapp.com/foods)
 
 ## Built With
 
-- Rails, Ruby, Devise, Cancancan, Rspec, SQL, Capybara, Boostrap.
+- Rails, Ruby, Devise, Cancancan, Rspec, SQL, Capybara, Bootstrap.
 
 ## Setup Project
 - Clone repo by using (https://github.com/Santiago220991/Recipe-App.git)
